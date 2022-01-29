@@ -3,11 +3,11 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.settings_ui import Ui_Dialog
+from pokitmeter_desktop.ui.confirm_switch_ui import Ui_Dialog
 
-class ConfigureSettings(QtWidgets.QDialog):
+class ConfirmSwitch(QtWidgets.QDialog):
     def __init__(self):
-        super(ConfigureSettings, self).__init__()
+        super(ConfirmSwitch, self).__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -22,7 +22,8 @@ class ConfigureSettings(QtWidgets.QDialog):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = ConfigureSettings()
+    window = ConfirmSwitch()
     app.exec_()

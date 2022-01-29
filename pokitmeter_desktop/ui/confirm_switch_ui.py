@@ -131,4 +131,4 @@ class Ui_Dialog(object):
         self.pushButton_switch.setText(_translate("Dialog", "Switch"))
         self.pushButton_cancel.setText(_translate("Dialog", "Cancel"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

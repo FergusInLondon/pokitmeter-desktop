@@ -3,11 +3,11 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.confirm_exit_ui import Ui_Dialog
+from pokitmeter_desktop.ui.settings_ui import Ui_Dialog
 
-class ConfirmExit(QtWidgets.QDialog):
+class ConfigureSettings(QtWidgets.QDialog):
     def __init__(self):
-        super(ConfirmExit, self).__init__()
+        super(ConfigureSettings, self).__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -22,8 +22,7 @@ class ConfirmExit(QtWidgets.QDialog):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
-
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = ConfirmExit()
+    window = ConfigureSettings()
     app.exec_()

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Users\Admin\Python\Workspace\Git_projects\python-projects\graphical_user_interface\pokitmeter\gui_files\invalid_dev_ui.ui'
+# Form implementation generated from reading ui file 'D:\Users\Admin\Python\Workspace\Git_projects\python-projects\graphical_user_interface\pokitmeter\gui_files\no_dev_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -37,7 +37,7 @@ class Ui_Dialog(object):
         self.label_background_scan_devices_2.setText("")
         self.label_background_scan_devices_2.setObjectName("label_background_scan_devices_2")
         self.label_volt_range_6 = QtWidgets.QLabel(Dialog)
-        self.label_volt_range_6.setGeometry(QtCore.QRect(50, 40, 131, 21))
+        self.label_volt_range_6.setGeometry(QtCore.QRect(32, 42, 161, 21))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(14)
@@ -74,7 +74,7 @@ class Ui_Dialog(object):
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
-"font: 63 11pt \"Segoe UI Semibold\";\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
 "color : rgb(0, 0, 0);\n"
 "border-width: 0px;\n"
 "border-radius: 8px;\n"
@@ -105,7 +105,7 @@ class Ui_Dialog(object):
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
-"font: 63 11pt \"Segoe UI Semibold\";\n"
+"font: 63 10pt \"Segoe UI Semibold\";\n"
 "color : rgb(0, 0, 0);\n"
 "border-width: 0px;\n"
 "border-radius: 8px;\n"
@@ -128,8 +128,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_volt_range_6.setText(_translate("Dialog", "Invalid device!"))
+        self.label_volt_range_6.setText(_translate("Dialog", "No devices found!"))
         self.pushButton_rescan.setText(_translate("Dialog", "Scan again"))
         self.pushButton_exit.setText(_translate("Dialog", "Exit"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

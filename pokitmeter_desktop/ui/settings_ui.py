@@ -237,4 +237,4 @@ class Ui_Dialog(object):
         self.comboBox_temp.setItemText(0, _translate("Dialog", "Celsius"))
         self.comboBox_temp.setItemText(1, _translate("Dialog", "Fahrenheit"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

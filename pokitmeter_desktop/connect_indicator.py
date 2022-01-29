@@ -3,12 +3,12 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.scanning_ui import Ui_Scanning
+from pokitmeter_desktop.ui.connecting_ui import Ui_Connecting
 
-class ScanIndicator(QtWidgets.QDialog):
+class ConnectIndicator(QtWidgets.QDialog):
     def __init__(self):
-        super(ScanIndicator, self).__init__()
-        self.ui = Ui_Scanning()
+        super(ConnectIndicator, self).__init__()
+        self.ui = Ui_Connecting()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -22,8 +22,7 @@ class ScanIndicator(QtWidgets.QDialog):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
-
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = ScanIndicator()
+    window = ConnectIndicator()
     app.exec_()

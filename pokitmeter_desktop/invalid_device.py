@@ -3,11 +3,11 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.no_dev_ui import Ui_Dialog
+from pokitmeter_desktop.ui.invalid_device_ui import Ui_Dialog
 
-class NoDevice(QtWidgets.QDialog):
+class InvalidDevice(QtWidgets.QDialog):
     def __init__(self):
-        super(NoDevice, self).__init__()
+        super(InvalidDevice, self).__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -25,5 +25,5 @@ class NoDevice(QtWidgets.QDialog):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = NoDevice()
+    window = InvalidDevice()
     app.exec_()

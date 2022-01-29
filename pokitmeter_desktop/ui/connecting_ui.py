@@ -66,4 +66,4 @@ class Ui_Connecting(object):
         Connecting.setWindowTitle(_translate("Connecting", "Dialog"))
         self.label_volt_range_7.setText(_translate("Connecting", "Connecting..."))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

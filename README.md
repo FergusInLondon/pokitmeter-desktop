@@ -1,7 +1,7 @@
 # pokitMeter-DMM-App
 BLE devices transfer data based on Generic Attribute (GATT) which uses Services and Characteristics concepts. This Windows app implements GATT communication by using a Python library called [Bleak](https://pypi.org/project/bleak/)- which is a GATT client software.
 
-![](/images/dmm_image.png)
+![](/docs/images/dmm_image.png)
 
 ## GENERAL INFORMATION
 
@@ -36,34 +36,34 @@ Windows based application for pokitMeter for accessing DMM functions:
 ### 2.1	Scanning
 Once the app is started it will scan automatically and display a wait indicator as shown below:
 
-![](/images/scanning.png)
+![](/docs/images/scanning.png)
 
 ### 2.2	Scanned Devices
 After scanning, the app will show a list of found devices:
 
-![](/images/scanned_devices.png)
+![](/docs/images/scanned_devices.png)
 
 Note that if pokitMeter does not appear on the list, a re-scan can be done by clicking the ‘Scan again’ button.
 
-![](/images/re-scanning.png)
+![](/docs/images/re-scanning.png)
 
 ### 2.3	Connecting to Target Device
 After selecting the target device, the app will check if the device is valid by checking the Manufacturer ID and will display a wait indicator as shown below:
 
-![](/images/connecting.png)
+![](/docs/images/connecting.png)
 
 ### 2.4	Multimeter Interface
 Once connected, the UI for the DMM will be displayed.
 
-![](/images/dmm_image.png)
+![](/docs/images/dmm_image.png)
 
 ### 2.5	Multimeter Settings
 Ranges and temperature scale can be changed on the settings.
 
-![](/images/settings.png)
+![](/docs/images/settings.png)
 
 ## Hardware
 BLE usb adapter and pokit device
 
- <img align="left" width="300" height="200" src="/images/ble_adapter.png">
- <img align="left" width="300" height="200" src="/images/pokitmeter.png">
+ <img align="left" width="300" height="200" src="/docs/images/ble_adapter.png">
+ <img align="left" width="300" height="200" src="/docs/images/pokitmeter.png">

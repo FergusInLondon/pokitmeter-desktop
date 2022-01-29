@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Users\Admin\Python\Workspace\Git_projects\python-projects\graphical_user_interface\pokitmeter\gui_files\no_dev_ui.ui'
+# Form implementation generated from reading ui file 'D:\Users\Admin\Python\Workspace\Git_projects\python-projects\graphical_user_interface\pokitmeter\gui_files\confirm_exit_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -12,13 +12,11 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        Dialog.resize(222, 114)
-        Dialog.setMinimumSize(QtCore.QSize(222, 114))
-        Dialog.setMaximumSize(QtCore.QSize(222, 114))
+        Dialog.resize(271, 114)
+        Dialog.setMinimumSize(QtCore.QSize(271, 114))
+        Dialog.setMaximumSize(QtCore.QSize(271, 114))
         self.label_background_scan_devices_2 = QtWidgets.QLabel(Dialog)
-        self.label_background_scan_devices_2.setGeometry(QtCore.QRect(0, 0, 221, 114))
-        self.label_background_scan_devices_2.setMinimumSize(QtCore.QSize(221, 114))
-        self.label_background_scan_devices_2.setMaximumSize(QtCore.QSize(221, 114))
+        self.label_background_scan_devices_2.setGeometry(QtCore.QRect(0, 0, 271, 114))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -37,30 +35,30 @@ class Ui_Dialog(object):
         self.label_background_scan_devices_2.setText("")
         self.label_background_scan_devices_2.setObjectName("label_background_scan_devices_2")
         self.label_volt_range_6 = QtWidgets.QLabel(Dialog)
-        self.label_volt_range_6.setGeometry(QtCore.QRect(32, 42, 161, 21))
+        self.label_volt_range_6.setGeometry(QtCore.QRect(32, 43, 221, 21))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
-        font.setPointSize(14)
+        font.setPointSize(12)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
         self.label_volt_range_6.setFont(font)
         self.label_volt_range_6.setStyleSheet("QLabel\n"
 " {\n"
-" font: 63 14pt \"Segoe UI Semibold\";\n"
+" font: 63 12pt \"Segoe UI Semibold\";\n"
 " color : rgb(47, 85, 151);\n"
 " }")
         self.label_volt_range_6.setObjectName("label_volt_range_6")
-        self.pushButton_rescan = QtWidgets.QPushButton(Dialog)
-        self.pushButton_rescan.setGeometry(QtCore.QRect(15, 74, 95, 34))
+        self.pushButton_exit_yes = QtWidgets.QPushButton(Dialog)
+        self.pushButton_exit_yes.setGeometry(QtCore.QRect(46, 74, 95, 34))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
-        self.pushButton_rescan.setFont(font)
-        self.pushButton_rescan.setStyleSheet("QPushButton\n"
+        self.pushButton_exit_yes.setFont(font)
+        self.pushButton_exit_yes.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
@@ -74,24 +72,24 @@ class Ui_Dialog(object):
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
+"font: 63 11pt \"Segoe UI Semibold\";\n"
 "color : rgb(0, 0, 0);\n"
 "border-width: 0px;\n"
 "border-radius: 8px;\n"
 "}")
-        self.pushButton_rescan.setFlat(False)
-        self.pushButton_rescan.setObjectName("pushButton_rescan")
-        self.pushButton_exit = QtWidgets.QPushButton(Dialog)
-        self.pushButton_exit.setGeometry(QtCore.QRect(119, 74, 86, 34))
+        self.pushButton_exit_yes.setFlat(False)
+        self.pushButton_exit_yes.setObjectName("pushButton_exit_yes")
+        self.pushButton_exit_no = QtWidgets.QPushButton(Dialog)
+        self.pushButton_exit_no.setGeometry(QtCore.QRect(150, 74, 86, 34))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semibold")
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
-        self.pushButton_exit.setFont(font)
-        self.pushButton_exit.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
-        self.pushButton_exit.setStyleSheet("QPushButton\n"
+        self.pushButton_exit_no.setFont(font)
+        self.pushButton_exit_no.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+        self.pushButton_exit_no.setStyleSheet("QPushButton\n"
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
@@ -105,14 +103,14 @@ class Ui_Dialog(object):
 "{\n"
 "background-color: rgb(47, 85, 151);\n"
 "border-style: solid;\n"
-"font: 63 10pt \"Segoe UI Semibold\";\n"
+"font: 63 11pt \"Segoe UI Semibold\";\n"
 "color : rgb(0, 0, 0);\n"
 "border-width: 0px;\n"
 "border-radius: 8px;\n"
 "}\n"
 "")
-        self.pushButton_exit.setFlat(False)
-        self.pushButton_exit.setObjectName("pushButton_exit")
+        self.pushButton_exit_no.setFlat(False)
+        self.pushButton_exit_no.setObjectName("pushButton_exit_no")
         self.pokit_logo_3 = QtWidgets.QLabel(Dialog)
         self.pokit_logo_3.setEnabled(False)
         self.pokit_logo_3.setGeometry(QtCore.QRect(9, 9, 33, 29))
@@ -128,8 +126,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_volt_range_6.setText(_translate("Dialog", "No devices found!"))
-        self.pushButton_rescan.setText(_translate("Dialog", "Scan again"))
-        self.pushButton_exit.setText(_translate("Dialog", "Exit"))
+        self.label_volt_range_6.setText(_translate("Dialog", "Are you sure you want to exit?"))
+        self.pushButton_exit_yes.setText(_translate("Dialog", "Yes"))
+        self.pushButton_exit_no.setText(_translate("Dialog", "No"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

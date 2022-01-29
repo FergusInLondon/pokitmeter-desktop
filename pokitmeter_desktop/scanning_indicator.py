@@ -3,12 +3,12 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.confirm_switch_ui import Ui_Dialog
+from pokitmeter_desktop.ui.scanning_ui import Ui_Scanning
 
-class ConfirmSwitch(QtWidgets.QDialog):
+class ScanIndicator(QtWidgets.QDialog):
     def __init__(self):
-        super(ConfirmSwitch, self).__init__()
-        self.ui = Ui_Dialog()
+        super(ScanIndicator, self).__init__()
+        self.ui = Ui_Scanning()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -25,5 +25,5 @@ class ConfirmSwitch(QtWidgets.QDialog):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = ConfirmSwitch()
+    window = ScanIndicator()
     app.exec_()

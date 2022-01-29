@@ -241,4 +241,4 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         self.lcd_display.setText(_translate("MainWindow", "- - - - -"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

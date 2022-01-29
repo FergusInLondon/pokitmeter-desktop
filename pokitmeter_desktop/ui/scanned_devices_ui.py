@@ -133,4 +133,4 @@ class Ui_Dialog(object):
         self.label_volt_range_5.setText(_translate("Dialog", "Devices Found"))
         self.pushButton_rescan.setText(_translate("Dialog", "Scan again"))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

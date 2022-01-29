@@ -74,4 +74,4 @@ class Ui_Scanning(object):
         Scanning.setWindowTitle(_translate("Scanning", "Scanning..."))
         self.label_volt_range_7.setText(_translate("Scanning", "Scanning..."))
 
-import ui_resource_rc
+import pokitmeter_desktop.ui_resource_rc

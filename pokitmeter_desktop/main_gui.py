@@ -7,26 +7,25 @@ import struct
 
 # Import BLE and concurrency library
 import asyncio
-import bleak
 from bleak import *
 from bleak import discover, BleakClient
 
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import Qt, QPoint, QThread, pyqtSignal
 
 # Import other UI components
-from no_device import NoDevice
-from invalid_device import InvalidDevice
-from scanned_devices import ScanGui
-from scanning_indicator import ScanIndicator
-from connect_indicator import ConnectIndicator
-from configure_settings import ConfigureSettings
-from confirm_switch import ConfirmSwitch
-from confirm_exit import ConfirmExit
+from pokitmeter_desktop.no_device import NoDevice
+from pokitmeter_desktop.invalid_device import InvalidDevice
+from pokitmeter_desktop.scanned_devices import ScanGui
+from pokitmeter_desktop.scanning_indicator import ScanIndicator
+from pokitmeter_desktop.connect_indicator import ConnectIndicator
+from pokitmeter_desktop.configure_settings import ConfigureSettings
+from pokitmeter_desktop.confirm_switch import ConfirmSwitch
+from pokitmeter_desktop.confirm_exit import ConfirmExit
 
 
 # Import main UI file created in Qt-designer
-from ui.main_ui import Ui_MainWindow
+from pokitmeter_desktop.ui.main_ui import Ui_MainWindow
 
 class MainGui(QtWidgets.QMainWindow):
     def __init__(self):
@@ -636,8 +635,8 @@ class VariableFlag(QtWidgets.QWidget):
         self._var = value
         self.valueChanged.emit(value)
 
-
+# @todo remove
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = MainGui()
+    window = MainGui() # Not entirely sure why the reference is kept?
     app.exec_()

@@ -3,12 +3,12 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.connecting_ui import Ui_Connecting
+from pokitmeter_desktop.ui.confirm_exit_ui import Ui_Dialog
 
-class ConnectIndicator(QtWidgets.QDialog):
+class ConfirmExit(QtWidgets.QDialog):
     def __init__(self):
-        super(ConnectIndicator, self).__init__()
-        self.ui = Ui_Connecting()
+        super(ConfirmExit, self).__init__()
+        self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setWindowFlags(Qt.FramelessWindowHint)
@@ -22,7 +22,8 @@ class ConnectIndicator(QtWidgets.QDialog):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = ConnectIndicator()
+    window = ConfirmExit()
     app.exec_()

@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt, QPoint
 import sys
 
 # Import ui file created
-from ui.scanned_devices_ui import Ui_Dialog
+from pokitmeter_desktop.ui.scanned_devices_ui import Ui_Dialog
 
 class ScanGui(QtWidgets.QDialog):
     def __init__(self):
