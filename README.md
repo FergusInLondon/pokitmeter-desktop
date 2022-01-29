@@ -1,69 +1,7 @@
-# pokitMeter-DMM-App
-BLE devices transfer data based on Generic Attribute (GATT) which uses Services and Characteristics concepts. This Windows app implements GATT communication by using a Python library called [Bleak](https://pypi.org/project/bleak/)- which is a GATT client software.
+# Pokitmeter Desktop App
 
-![](/docs/images/dmm_image.png)
+This is a fork of [jdonj/BLE-pokitMeter-Windows-App](https://github.com/jdonj/BLE-pokitMeter-Windows-App).
 
-## GENERAL INFORMATION
+Initially I created the fork to try and get it to play nicely with Linux, but there doesn't seem to be any issues so far! The only changes (as of 29/01/2022) are an amended directory structure, `poetry` for dependency management, and graceful termination when executed from the terminal.
 
-### 1.1	System Overview
-Windows based application for pokitMeter for accessing DMM functions: 
-
-* Voltage, Current, Resistance, Diode, Continuity, Temperature
-* DMM configurations
-   * voltage range
-   * current range
-   * ohmmeter range
-   * temperature scale
-* DSO  and Data Logger functions:
-   * Under development
-* Written in Python
-
-### 1.2	Core Components
-* Python 3.7
-* PyQt5
-* Bleak
-
-### 1.3	Platform
-* Windows 10
-* GUI is created using Qt Designer
-* Exe is created using PyInstaller
-
-
-## GETTING STARTED
-* Run the python script 'main_gui.py' or
-* Run the stand-alone (exe) file 'pokitMeter_DMM'
-
-### 2.1	Scanning
-Once the app is started it will scan automatically and display a wait indicator as shown below:
-
-![](/docs/images/scanning.png)
-
-### 2.2	Scanned Devices
-After scanning, the app will show a list of found devices:
-
-![](/docs/images/scanned_devices.png)
-
-Note that if pokitMeter does not appear on the list, a re-scan can be done by clicking the ‘Scan again’ button.
-
-![](/docs/images/re-scanning.png)
-
-### 2.3	Connecting to Target Device
-After selecting the target device, the app will check if the device is valid by checking the Manufacturer ID and will display a wait indicator as shown below:
-
-![](/docs/images/connecting.png)
-
-### 2.4	Multimeter Interface
-Once connected, the UI for the DMM will be displayed.
-
-![](/docs/images/dmm_image.png)
-
-### 2.5	Multimeter Settings
-Ranges and temperature scale can be changed on the settings.
-
-![](/docs/images/settings.png)
-
-## Hardware
-BLE usb adapter and pokit device
-
- <img align="left" width="300" height="200" src="/docs/images/ble_adapter.png">
- <img align="left" width="300" height="200" src="/docs/images/pokitmeter.png">
+Please see the original README for full details - [README.origin.md](README.origin.md). The commit at which this fork occurred is tagged `origin` - [current diff](https://github.com/jdonj/BLE-pokitMeter-Windows-App/compare/master...FergusInLondon:master).
