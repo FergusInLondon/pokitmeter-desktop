@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pokitmeter-desktop"
+version = "0.0.1"
+description = "A fork of @jdonj's original desktop application for PokitMeter, but twith cross-platform compatability."
+authors = ["Fergus In London <fergus@fergus.london>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+bleak = "0.14.2"
+pyobjc-core = "8.2"
+pyobjc-framework-Cocoa = "8.2"
+pyobjc-framework-CoreBluetooth = "8.2"
+pyobjc-framework-libdispatch = "8.2"
+PyQt5 = "5.15.6"
+PyQt5-Qt5 = "5.15.2"
+PyQt5-sip = "12.9.0"
+setuptools = "^60.5.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
