@@ -1,6 +1,9 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import Qt, QPoint
 import sys
+
+from typing import Dict
+from bleak.backends.device import BLEDevice
 
 # Import ui file created
 from pokitmeter_desktop.ui.scanned_devices_ui import Ui_Dialog
@@ -16,9 +19,9 @@ class ScanGui(QtWidgets.QDialog):
         self.center()
         # self.show()   # for debugging only
 
-    def add_item(self, devices):
+    def set_items(self, device_map: Dict[str, BLEDevice]):
         self.ui.listWidget_devices.clear()
-        for key in devices.keys():
+        for key in device_map.keys():
             self.ui.listWidget_devices.insertItem(-1, key)
 
     def center(self):
