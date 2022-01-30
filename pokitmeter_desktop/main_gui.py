@@ -60,7 +60,8 @@ class MainGui(QtWidgets.QMainWindow):
         self.read_data = 0
 
         # @v0.0.1
-        self.bluetooth_connection = Scanner()
+        self.bluetooth_event_loop = asyncio.new_event_loop()
+        self.bluetooth_connection = Scanner(self.bluetooth_event_loop)
 
         # Set default range functions
         self.volt_range = 'Auto range'
@@ -268,11 +269,8 @@ class MainGui(QtWidgets.QMainWindow):
         """
         async def conn(address, loop, self):
             # Use Pybleak to access GATT
-            async with BleakClient(address.address, timeout=30.0, loop=loop) as client:
-                print("trying to connect, waiting...")
-                x = await client.connect(service_uuids=[self.discovery_uuid])
-                print(f"connected: {x}")
-                if x:
+            async with BleakClient(address, timeout=30.0) as client:
+                if client.is_connected:
                     read_id = bytes(await client.read_gatt_char(self.man_uuid))
                     # print(read_id)
                     if self.man_id != read_id.decode():
@@ -316,7 +314,7 @@ class MainGui(QtWidgets.QMainWindow):
         while not self.flag:
             try:
                 print("trying loop execution")
-                loop.run_until_complete(conn(self.bluetooth_connection.selected_device, loop, self))
+                self.bluetooth_event_loop.run_until_complete(conn(self.bluetooth_connection.selected_device, loop, self))
             except Exception as e:
                 raise e
                 print(e)
