@@ -252,12 +252,12 @@ class MainGui(QtWidgets.QMainWindow):
         :return: None
         """
         self.scanning.close()
-        
+
         discovered_devices = self.bluetooth_connection.devices
         if discovered_devices == {}:
             self.no_device.show()
             return
-        
+
         self.device_found.set_items(discovered_devices)
         self.device_found.show()
 

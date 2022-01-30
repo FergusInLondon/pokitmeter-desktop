@@ -18,7 +18,7 @@ class ScanGui(QtWidgets.QDialog):
         self.setWindowIcon(QtGui.QIcon(":/images/pokit_logo.png"))
         self.center()
         # self.show()   # for debugging only
-    
+
     def set_items(self, device_map: Dict[str, BLEDevice]):
         self.ui.listWidget_devices.clear()
         for key in device_map.keys():

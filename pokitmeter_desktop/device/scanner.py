@@ -31,7 +31,7 @@ class Scanner:
         self.devices = {
             d.name : d for d in devices
         }
-    
+
     def select_device(self, device_key):
         self.selected_device = self.devices.get(device_key)
         if not self.selected_device:
