@@ -7,11 +7,11 @@ import struct
 
 # Import BLE and concurrency library
 import asyncio
-from bleak import *
-from bleak import discover, BleakClient
+from bleak import BleakClient
 
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import Qt, QPoint, QThread, pyqtSignal
+from pokitmeter_desktop.device import Scanner
 
 # Import other UI components
 from pokitmeter_desktop.no_device import NoDevice
@@ -58,6 +58,9 @@ class MainGui(QtWidgets.QMainWindow):
         self.read_uuid  = '047d3559-8bee-423a-b229-4417fa603b90'
         self.write_data = 0
         self.read_data = 0
+
+        # @v0.0.1
+        self.bluetooth_connection = Scanner()
 
         # Set default range functions
         self.volt_range = 'Auto range'
@@ -159,6 +162,7 @@ class MainGui(QtWidgets.QMainWindow):
         self.scanning.show()
         self.scan_device.start()
 
+
     # Basic UI functions -----------------------------------------------------------------------------------------------
     def center(self):
         qr = self.frameGeometry()
@@ -175,33 +179,7 @@ class MainGui(QtWidgets.QMainWindow):
         self.oldPos = event.globalPos()
 
     def scan_now(self):
-        """ Get BLE address and device name from available BLE advertisement
-
-        :return: list of ble devices
-        """
-        async def ble_scan():
-            devices = await discover()
-            dev_list = []
-            for dev in devices:
-                dev_list.append(str(dev))
-            return dev_list
-        loop = asyncio.new_event_loop()
-        devices = loop.run_until_complete(ble_scan())
-        loop.close()
-        self.parse_address(devices)
-
-    def parse_address(self, devices):
-        """ Parse and store data of BLE devices on a dictionary where the device name is the key
-            and BLE address is the value
-        :param devices: list of devices
-
-        :return: None
-        """
-        for dev in devices:
-            dev  = dev.split(' ')
-            addr = dev[0].strip().strip(':')
-            dev  = ''.join([s.strip() for s in dev[1:]])
-            self.devices[dev] = addr
+        self.bluetooth_connection.scan()
 
     def parse_data(self):
         """ Select range based on mode
@@ -229,10 +207,14 @@ class MainGui(QtWidgets.QMainWindow):
         :return: None
         """
         item = self.device_found.ui.listWidget_devices.currentItem()
-        self.current_device = self.devices[item.text().strip()]
+        device_key = item.text().strip()
+        self.bluetooth_connection.select_device(device_key)
         self.device_found.close()
+
         self.connecting.show()
+        print("starting connect device")
         self.connect_device.start()
+        print("finished device_clicked")
 
     def check_invalid(self):
         """ Function to handle invalid device
@@ -269,11 +251,14 @@ class MainGui(QtWidgets.QMainWindow):
         :return: None
         """
         self.scanning.close()
-        if self.devices == {}:
+        
+        discovered_devices = self.bluetooth_connection.devices
+        if discovered_devices == {}:
             self.no_device.show()
-        else:
-            self.device_found.add_item(self.devices)
-            self.device_found.show()
+            return
+        
+        self.device_found.set_items(discovered_devices)
+        self.device_found.show()
 
     def conn_device(self):
         """ Thread for establishing connection to selected BLE device, once connected it will continuously read values
@@ -282,10 +267,11 @@ class MainGui(QtWidgets.QMainWindow):
         :return: None
         """
         async def conn(address, loop, self):
-
             # Use Pybleak to access GATT
-            async with BleakClient(address, loop=loop) as client:
-                x = await client.is_connected()
+            async with BleakClient(address.address, timeout=30.0, loop=loop) as client:
+                print("trying to connect, waiting...")
+                x = await client.connect(service_uuids=[self.discovery_uuid])
+                print(f"connected: {x}")
                 if x:
                     read_id = bytes(await client.read_gatt_char(self.man_uuid))
                     # print(read_id)
@@ -329,8 +315,11 @@ class MainGui(QtWidgets.QMainWindow):
         # Try connecting to device until it succeed
         while not self.flag:
             try:
-                loop.run_until_complete(conn(self.current_device, loop, self))
-            except:
+                print("trying loop execution")
+                loop.run_until_complete(conn(self.bluetooth_connection.selected_device, loop, self))
+            except Exception as e:
+                raise e
+                print(e)
                 time.sleep(0.02)
 
     def connect_successful(self):
